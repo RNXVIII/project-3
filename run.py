@@ -42,15 +42,29 @@ def get_ship_sizes(num_ships, grid_size):
         except ValueError as e:
             print(f"Error: {e}. Please enter valid ship sizes.")
 
+def initialize_board(grid_size):
+    """Create and initialize the game board."""
+    return [['O' for _ in range(grid_size)] for _ in range(grid_size)]
+
+
+
+
+#NOTE sometimes it re-asks questions and is used to to make sure to functions are correct 
+#NOTE also for clearnace you will not see the ships on the grid yet!
 
 #if statment to check that all fucntions work
 if __name__ == "__main__":
-    # Define sample values for testing
-    num_ships = 3
-    grid_size = 5
+    # Call the functions and print the results
+    grid_size = get_grid_size()
+    print("Grid Size:", grid_size)
 
-    # Call the get_ship_sizes function with sample values
+    num_ships = get_num_ships()
+    print("Number of Ships:", num_ships)
+
     ship_sizes = get_ship_sizes(num_ships, grid_size)
-
-    # Print the resulting ship sizes
     print("Ship Sizes:", ship_sizes)
+
+    board = initialize_board(grid_size)
+    print("Initial Board:")
+    for row in board:
+        print(' '.join(row))
