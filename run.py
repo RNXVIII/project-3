@@ -1,3 +1,7 @@
+#we random to randomly place the ships on the grid
+
+import random
+
 
 
 def get_grid_size():
@@ -46,25 +50,40 @@ def initialize_board(grid_size):
     """Create and initialize the game board."""
     return [['O' for _ in range(grid_size)] for _ in range(grid_size)]
 
+def place_ships(board, ships):
+    """Randomly place ships on the game board."""
+    for ship_size in ships:
+        row = random.randint(0, len(board) - 1)
+        col = random.randint(0, len(board[0]) - 1)
+        direction = random.choice(['horizontal', 'vertical'])
+
+        if direction == 'horizontal' and col + ship_size <= len(board[0]):
+            for i in range(ship_size):
+                board[row][col + i] = 'S'
+        elif direction == 'vertical' and row + ship_size <= len(board):
+            for i in range(ship_size):
+                board[row + i][col] = 'S'
+        else:
+            place_ships(board, [ship_size])
+
+def display_board(board):
+    """Display the game board."""
+    for row in board:
+        print(' '.join(row))
 
 
 
 #NOTE sometimes it re-asks questions and is used to to make sure to functions are correct 
-#NOTE also for clearnace you will not see the ships on the grid yet!
 
-#if statment to check that all fucntions work
+#if statment to check that all functions work
 if __name__ == "__main__":
-    # Call the functions and print the results
+    # Call the functions to set up the game
     grid_size = get_grid_size()
-    print("Grid Size:", grid_size)
-
     num_ships = get_num_ships()
-    print("Number of Ships:", num_ships)
-
     ship_sizes = get_ship_sizes(num_ships, grid_size)
-    print("Ship Sizes:", ship_sizes)
-
     board = initialize_board(grid_size)
-    print("Initial Board:")
-    for row in board:
-        print(' '.join(row))
+    place_ships(board, ship_sizes)
+
+    # Display the initial game board
+    print("Initial Game Board:")
+    display_board(board)
