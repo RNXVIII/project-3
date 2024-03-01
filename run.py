@@ -1,4 +1,4 @@
-#we random to randomly place the ships on the grid
+#we use random to randomly place the ships on the grid
 
 import random
 
@@ -15,7 +15,7 @@ def get_grid_size():
         except ValueError as e:
             print(f"Error: {e}. Please enter a valid grid size.")
 
-get_grid_size()
+
 
 def get_num_ships():
     """Prompt the user to input the number of ships."""
@@ -28,7 +28,7 @@ def get_num_ships():
         except ValueError as e:
             print(f"Error: {e}. Please enter a valid number of ships.")
 
-get_num_ships()
+
 
 
 def get_ship_sizes(num_ships, grid_size):
@@ -50,6 +50,8 @@ def initialize_board(grid_size):
     """Create and initialize the game board."""
     return [['O' for _ in range(grid_size)] for _ in range(grid_size)]
 
+#the place_ships funciton also places the ships randomly for the computer
+
 def place_ships(board, ships):
     """Randomly place ships on the game board."""
     for ship_size in ships:
@@ -66,11 +68,14 @@ def place_ships(board, ships):
         else:
             place_ships(board, [ship_size])
 
+#how the User can see the grid AND ships
 def display_board(board):
     """Display the game board."""
     for row in board:
         print(' '.join(row))
 
+
+# this funciton is the users guess
 def get_guess(grid_size):
     while True:
         try:
@@ -90,25 +95,47 @@ def computer_move(board, grid_size):
         if board[row][col] == 'O':
             return row, col
 
-#NOTE sometimes it re-asks questions and is used to to make sure to functions are correct 
 
-#if statment to check that all functions work
+def play_game():
+    """Main game loop."""
+    while True:
+        try:
+            grid_size = get_grid_size()
+            num_ships = get_num_ships()
+            ship_sizes = get_ship_sizes(num_ships, grid_size)
+            board = initialize_board(grid_size)
+            place_ships(board, ship_sizes)
+
+            while True:
+                display_board(board)
+                row, col = get_guess(grid_size)
+
+                if board[row][col] == 'S':
+                    print("Hit!")
+                    board[row][col] = 'X'
+                else:
+                    print("Miss!")
+
+                # Print computer's move
+                computer_row, computer_col = computer_move(board, grid_size)
+                if board[computer_row][computer_col] == 'S':
+                    print(f"Computer's Move: Hit at ({computer_row + 1}, {computer_col + 1})!")
+                    board[computer_row][computer_col] = 'X'
+                else:
+                    print(f"Computer's Move: Miss at ({computer_row + 1}, {computer_col + 1})!")
+
+                if all('S' not in row for row in board):
+                    print("Congratulations! You sunk all the ships!")
+                    break
+
+            restart = input("Do you want to play again? (yes/no): ").lower()
+            if restart != 'yes':
+                break
+        except KeyboardInterrupt:
+            print("\nGame terminated by user.")
+            break
+        except Exception as e:
+            print(f"An error occurred: {e}. Restarting the game.")
+
 if __name__ == "__main__":
-    # Call the functions to set up the game
-    grid_size = get_grid_size()
-    num_ships = get_num_ships()
-    ship_sizes = get_ship_sizes(num_ships, grid_size)
-    board = initialize_board(grid_size)
-    place_ships(board, ship_sizes)
-
-    # Display the initial game board
-    print("Initial Game Board:")
-    display_board(board)
-
-    # Test the get_guess function
-    guess = get_guess(grid_size)
-    print("Guess:", guess)
-
-    # Test the computer_move function
-    comp_move = computer_move(board, grid_size)
-    print("Computer Move:", comp_move)
+    play_game()
