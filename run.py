@@ -71,6 +71,17 @@ def display_board(board):
     for row in board:
         print(' '.join(row))
 
+def get_guess(grid_size):
+    while True:
+        try:
+            row = int(input(f"Enter row (1-{grid_size}): ")) - 1
+            col = int(input(f"Enter column (1-{grid_size}): ")) - 1
+            if not (0 <= row < grid_size and 0 <= col < grid_size):
+                raise ValueError("Guess is off the grid.")
+            return row, col
+        except ValueError as e:
+            print(f"Error: {e}. Please enter valid row and column numbers.")
+
 
 
 #NOTE sometimes it re-asks questions and is used to to make sure to functions are correct 
@@ -87,3 +98,7 @@ if __name__ == "__main__":
     # Display the initial game board
     print("Initial Game Board:")
     display_board(board)
+
+    # Test the get_guess function
+    guess = get_guess(grid_size)
+    print("Guess:", guess)
