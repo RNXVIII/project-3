@@ -82,7 +82,13 @@ def get_guess(grid_size):
         except ValueError as e:
             print(f"Error: {e}. Please enter valid row and column numbers.")
 
-
+def computer_move(board, grid_size):
+    """Generate a random move for the computer."""
+    while True:
+        row = random.randint(0, grid_size - 1)
+        col = random.randint(0, grid_size - 1)
+        if board[row][col] == 'O':
+            return row, col
 
 #NOTE sometimes it re-asks questions and is used to to make sure to functions are correct 
 
@@ -102,3 +108,7 @@ if __name__ == "__main__":
     # Test the get_guess function
     guess = get_guess(grid_size)
     print("Guess:", guess)
+
+    # Test the computer_move function
+    comp_move = computer_move(board, grid_size)
+    print("Computer Move:", comp_move)
