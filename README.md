@@ -1,32 +1,90 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<h1>A battleship game<h1>
 
-Welcome,
+this is a python program that makes a simple game against the computer 
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+# features 
 
-## Reminders
+## the game board
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+<h2><img src="assets/images/pythongameboard.png"></h2>
 
-## Creating the Heroku app
+this is the main board for our battleship game , the S mean your ship , the length of the size is equals to the size of
+your ship
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+## the guessing feature 
 
-1. `heroku/python`
-2. `heroku/nodejs`
+<h2><img src="assets/images/guesspython.png"></h2>
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+the guess feature is a basic feature that allows the user to guess where the computers boats are and will tell you if you hit
+or missed it 
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+## the computers move
 
-Connect your GitHub repository and deploy as normal.
+<h2><img src="assets/images/computersmove.png"></h2>
 
-## Constraints
+the computers move is essntially a feature that tells you the computers move and tells the user if the hit or miss
+this was added to give the user a better idea of whats happening in the game 
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+## restart 
 
----
+<h2><img src="assets/images/computersmove.png"></h2>
 
-Happy coding!
+the restart function essentially just allows the user to restart the gaem if they so choose to without re-running the program
+
+# Features left to impliment
+
+there is little that i wanted to impliment in this game that i couldnt and those things were:
+
+<ul>
+
+<li>A score system for when you or the computer wins this could be done by adding a simple incrementer </li>
+
+<li>because its a terminal based program i couldnt make a better grid for the battleships using tkinter</li>
+
+# Languages Used
+
+[Python](https://www.python.org/)
+
+
+# flowchart 
+
+this was a basic flowchart i made on [lucidchart](https://www.lucidchart.com/pages/landing?utm_source=google&utm_medium=cpc&utm_campaign=_chart_en_tier1_mixed_search_brand_exact_&km_CPC_CampaignId=1490375427&km_CPC_AdGroupID=55688909257&km_CPC_Keyword=lucidchart&km_CPC_MatchType=e&km_CPC_ExtensionID=&km_CPC_Network=g&km_CPC_AdPosition=&km_CPC_Creative=354596043016&km_CPC_TargetID=kwd-33511936169&km_CPC_Country=9180610&km_CPC_Device=c&km_CPC_placement=&km_CPC_target=&gad_source=1&gclid=CjwKCAiAuYuvBhApEiwAzq_YiXfaDgcjum3hzgmg9sC3hnTScl3aSIgnHbm2kQdLkMpJQVO2Dh04DxoCgp8QAvD_BwE)
+
+i made this basic chart to give myself some sort of basic idea for my project 
+
+<h2><img src="assets/images/pflowchart.png"></h2>
+
+
+# validators 
+
+the validators i used were pep8 (which forced me to use pycodestyle)
+
+and the result are :
+
+<h2><img src="assets/images/presults.png"></h2>
+
+no errors when running it 
+
+# bugs that arent fixed 
+
+mainly the entire issue ive had with heroku is that i CANNOT deploy my project live , ive spent alot of hours trying to use google cloud , pythoneverywhere , replit and other things to replace this and i could not 
+
+<h2><img src="assets/images/myissue.png"></h2>
+
+# credits 
+
+this youtube video [here](https://www.youtube.com/watch?v=CP1j6gM4jSo)
+
+gave me a good idea of how i could make a grid on a terminal 
+
+this youtube video [here](https://www.youtube.com/watch?v=Ej7I8BPw7Gk&list=PLpeS0xTwoWAsn3SwQbSsOZ26pqZ-0CG6i)
+
+this playlist also gave me alot of insperation on how to build this 
+
+the rest was me reusiing code from the python essentials to get my way around some issues 
+
+# libaries and tools used 
+
+the libary [random](https://docs.python.org/3/library/random.html)
+
+the library [pycodestyle](https://pypi.org/project/pycodestyle/)
