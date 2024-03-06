@@ -1,6 +1,8 @@
-<h1>A battleship game<h1>
+# A battleship game
 
 this is a python program that makes a simple game against the computer 
+
+the link is [here](https://project3battleships-0ac68a4f83db.herokuapp.com/)
 
 # features 
 
@@ -54,6 +56,21 @@ i made this basic chart to give myself some sort of basic idea for my project
 
 <h2><img src="assets/images/pflowchart.png"></h2>
 
+# deployment
+
+the tool used to deploy this project is heroku.
+
+to deploy your repository on to heroku is simple:
+
+create/sign in to an account 
+
+create an "app" 
+
+link your github account to your heroku account 
+
+search for your repository 
+
+deploy it!
 
 # validators 
 
@@ -67,9 +84,8 @@ no errors when running it
 
 # bugs that arent fixed 
 
-mainly the entire issue ive had with heroku is that i CANNOT deploy my project live , ive spent alot of hours trying to use google cloud , pythoneverywhere , replit and other things to replace this and i could not 
+there are currently no bugs in this game that im aware of after testing the progam for bugs
 
-<h2><img src="assets/images/myissue.png"></h2>
 
 # credits 
 
@@ -81,10 +97,18 @@ this youtube video [here](https://www.youtube.com/watch?v=Ej7I8BPw7Gk&list=PLpeS
 
 this playlist also gave me alot of insperation on how to build this 
 
-the rest was me reusiing code from the python essentials to get my way around some issues 
+the rest was me reusiing code from the python essentials to get my way around this project.
 
 # libaries and tools used 
 
 the libary [random](https://docs.python.org/3/library/random.html)
 
 the library [pycodestyle](https://pypi.org/project/pycodestyle/)
+
+# additonal notes 
+
+i would like to point out an issue i had which has made the last 2-3 commits a bit lackluster in the way that they have been , done , this was not intended but more a issue that i had with heroku thus i wasnt able to do the full readme at the time. 
+
+here is the issue i had :
+
+<h2><img src="assets/images/myissue.png"></h2>

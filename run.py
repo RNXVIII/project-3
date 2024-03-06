@@ -89,7 +89,7 @@ def get_guess(grid_size):
         except ValueError as e:
             print(f"Error: {e}. Please enter valid row and column numbers.")
 
-
+# generates a move for the opponent
 def computer_move(board, grid_size):
     """Generate a random move for the computer."""
     while True:
@@ -98,7 +98,7 @@ def computer_move(board, grid_size):
         if board[row][col] == 'O':
             return row, col
 
-
+# this is where the game uses all the previous functions to build the main game loop
 def play_game():
     """Main game loop."""
     while True:
